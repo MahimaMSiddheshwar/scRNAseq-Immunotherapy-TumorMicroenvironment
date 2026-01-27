@@ -1,0 +1,15 @@
+# Python env
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (don’t push raw data)
+data/raw/
+data/processed/
+
+# OS/Editor
+.vscode/
+.DS_Store
