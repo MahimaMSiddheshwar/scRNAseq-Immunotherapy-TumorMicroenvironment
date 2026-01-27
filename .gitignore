@@ -13,3 +13,12 @@ data/processed/
 # OS/Editor
 .vscode/
 .DS_Store
+
+# data
+data/raw/
+data/processed/*.h5ad
+
+# environments
+.venv/
+__pycache__/
+.ipynb_checkpoints/
