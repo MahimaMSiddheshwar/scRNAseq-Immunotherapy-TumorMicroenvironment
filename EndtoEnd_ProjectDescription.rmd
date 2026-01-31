@@ -1,0 +1,304 @@
+---
+
+Title: "Single-cell RNA-seq Analysis of Anti–PD-1–treated Melanoma"
+Author: "Mahima Mahabaleshwar Siddheshwar"
+Date: "Jan 2026"
+Output: html_document
+---------------------
+
+# Project Overview
+
+This project performs an end-to-end single-cell RNA sequencing (scRNA-seq) analysis of melanoma tumor samples treated with anti–PD-1 immunotherapy. The dataset originates from **TISCH** and corresponds to **SKCM_GSE115978_aPD1**, a well-characterized immunotherapy dataset widely used for tumor microenvironment (TME) analysis.
+
+The goal of this analysis is to:
+
+* Process raw single-cell expression data
+* Perform quality control and normalization
+* Identify biologically meaningful cell populations
+* Annotate immune and tumor cell types using marker genes
+* Visualize the tumor immune landscape under PD-1 blockade
+
+This report documents **every analytical step**, the **input and output files**, the **statistical methods used**, and the **biological interpretation of results**, making it suitable for presentations, interviews, and reproducible research documentation.
+
+---
+
+# Dataset Description
+
+## Source
+
+* **Database:** TISCH (Tumor Immune Single Cell Hub)
+* **Cancer type:** Skin Cutaneous Melanoma (SKCM)
+* **GEO accession:** GSE115978
+* **TISCH subset:** SKCM_GSE115978_aPD1
+
+## Experimental Design
+
+* **Treatment:** Anti–PD-1 immunotherapy
+* **Sample type:** Tumor tissue only
+* **Control:** No matched normal tissue
+* **Patients:** Single patient
+* **Condition:** One tumor sample under PD-1 blockade
+
+### Important Implications
+
+* No patient-level batch correction was required
+* No tumor vs normal differential comparison was performed
+* All clustering reflects **cellular heterogeneity within one tumor microenvironment**
+
+---
+
+# Metadata Structure
+
+The metadata (`adata.obs`) contains:
+
+* `leiden` – Graph-based cluster labels
+* `n_genes_by_counts` – Genes detected per cell
+* `total_counts` – Total UMIs per cell
+* `pct_counts_mt` – Percent mitochondrial reads
+* `cell_type` – Manually annotated biological labels
+
+Since the dataset represents **one patient and one tumor**, there are **no fields for patient ID, condition, or batch**, simplifying downstream interpretation.
+
+---
+
+# Computational Environment
+
+## Software and Tools
+
+* **Language:** Python 3.11
+* **IDE:** Visual Studio Code
+* **Environment:** venv (virtual environment)
+* **Version control:** Git + GitHub
+
+## Core Libraries
+
+* `scanpy`
+* `anndata`
+* `numpy`
+* `pandas`
+* `matplotlib`
+* `seaborn`
+
+All analyses were executed in modular Jupyter notebooks for clarity and reproducibility.
+
+---
+
+# Analysis Workflow
+
+## Step 1: Data Ingestion
+
+### Input
+
+* `SKCM_GSE115978_aPD1_adata_base.h5ad`
+
+### Actions
+
+* Loaded AnnData object
+* Inspected cell and gene dimensions
+* Verified metadata consistency
+
+### Output
+
+* Validated AnnData object ready for QC
+
+---
+
+## Step 2: Quality Control (QC)
+
+### Metrics Used
+
+* Number of genes per cell
+* Total UMI counts
+* Percentage of mitochondrial genes
+
+### Rationale
+
+Low-quality cells often show:
+
+* Very few detected genes
+* Excessive mitochondrial expression
+
+### Output Files
+
+* `umap_n_genes_by_counts.png`
+* `umap_total_counts.png`
+* `umap_pct_counts_mt.png`
+
+These plots confirmed acceptable data quality without aggressive filtering.
+
+---
+
+## Step 3: Normalization and Feature Selection
+
+### Methods
+
+* Total-count normalization
+* Log1p transformation
+* Highly Variable Gene (HVG) selection
+
+### Purpose
+
+* Normalize sequencing depth
+* Retain biologically informative genes
+
+### Output
+
+* Normalized expression matrix
+* Reduced noise for downstream PCA
+
+---
+
+## Step 4: Dimensionality Reduction
+
+### PCA (Principal Component Analysis)
+
+* Used HVGs only
+* Reduced high-dimensional gene space
+
+### Neighbor Graph Construction
+
+* k-nearest neighbors built on PCA space
+* Basis for clustering and UMAP
+
+---
+
+## Step 5: UMAP Visualization
+
+### Method
+
+* UMAP (Uniform Manifold Approximation and Projection)
+
+### Why UMAP?
+
+* Preserves local neighborhood structure
+* Widely used for scRNA-seq visualization
+
+### Output
+
+* `umap_base.png`
+
+UMAP represents cells as points in 2D (UMAP1, UMAP2), where proximity reflects transcriptomic similarity.
+
+---
+
+## Step 6: Clustering (Leiden Algorithm)
+
+### Algorithm Used
+
+* **Leiden clustering** (graph-based community detection)
+
+### Why Leiden?
+
+* Improves upon Louvain
+* Produces well-connected, stable clusters
+
+### Resolution
+
+* Resolution = 0.5
+* Resulted in **14 clusters (0–13)**
+
+### Output
+
+* `umap_leiden_res0.5.png`
+
+Each cluster represents a putative cell population.
+
+---
+
+## Step 7: Marker Gene Identification
+
+### Statistical Test
+
+* **Wilcoxon rank-sum test**
+
+### Comparison
+
+* Each cluster vs all other cells
+
+### Output Files
+
+* `markers_top50_per_cluster.csv`
+* `rank_genes_groups_top20.png`
+
+This step identifies genes uniquely enriched in each cluster.
+
+---
+
+## Step 8: Cell-Type Annotation
+
+### Strategy
+
+* Compared cluster markers with known immune and tumor markers
+
+### Major Cell Types Identified
+
+* T cells
+* B cells
+* NK cells
+* Dendritic cells
+* Myeloid cells
+* Endothelial cells
+* Fibroblasts
+* Pericytes / Smooth muscle
+* Tumor / Epithelial
+* Tumor / Melanoma
+* Cycling cells
+
+### Output
+
+* `umap_leiden_celltype_names_only.png`
+
+Cell-type labels were placed at cluster centroids for clarity.
+
+---
+
+## Step 9: Marker Panel Expression Visualization
+
+### Purpose
+
+* Validate annotations biologically
+
+### Marker Panel Included
+
+* Immune: `PTPRC`, `CD3D`, `NKG7`, `MS4A1`
+* Myeloid: `LYZ`, `LST1`
+* Stromal: `DCN`, `COL1A1`
+* Tumor: `EPCAM`, `KRT8`, `KRT18`
+* Proliferation: `MKI67`
+
+### Output
+
+* `umap_marker_panel_first12.png`
+* `umap_marker_panel_remaining.png`
+
+These plots confirm correct mapping between clusters and biological identities.
+
+---
+
+# Final Outputs Summary
+
+| Category   | Output                    |
+| ---------- | ------------------------- |
+| QC         | Gene/UMI/MT plots         |
+| Clustering | Leiden UMAP               |
+| Annotation | Cell-type labeled UMAP    |
+| Markers    | CSV + dotplots + heatmaps |
+| Validation | Marker expression UMAPs   |
+
+---
+
+# Biological Interpretation
+
+This analysis reveals a diverse tumor microenvironment dominated by:
+
+* Active immune infiltration (T, NK, myeloid cells)
+* Stromal support cells (fibroblasts, pericytes)
+* Tumor populations under immunotherapy pressure
+
+The presence of cycling cells and distinct melanoma clusters reflects tumor heterogeneity during PD-1 treatment.
+
+---
+
+# Conclusion
+
+This project demonstrates a complete, reproducible scRNA-seq workflow using modern single-cell best practices. It integrates computational rigor with biological interpretation and serves as a strong portfolio project for genomics, bioinformatics, and immuno-oncology roles.
