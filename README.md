@@ -182,13 +182,14 @@ scRNAseq_Immunotherapy/
 ## Author
 
 **Mahima Mahabaleshwar Siddheshwar**
+
 Bioinformatics Scientist | scRNA-seq | Transcriptomics | Immunogenomics
 
 ---
 
-This repository is designed for:
+This repository is designed for 🧬
 
-* Learning and demonstration of scRNA-seq workflows 🧬
+* Learning and demonstration of scRNA-seq workflows 
 * Interview discussions and project presentations
 * Extension to multi-sample or multi-patient analyses
 
