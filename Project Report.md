@@ -7,7 +7,7 @@ output: html_document
 
 # Project Overview
 
-This project performs an end-to-end single-cell RNA sequencing (scRNA-seq) analysis of melanoma tumor samples treated with anti–PD-1 immunotherapy. The dataset originates from **TISCH** and corresponds to **SKCM_GSE115978_aPD1**, a well-characterized immunotherapy dataset widely used for tumor microenvironment (TME) analysis.
+This project performs an end-to-end single-cell RNA sequencing (scRNA-seq) analysis of melanoma tumor samples treated with anti–PD-1 immunotherapy. The dataset originates from **TISCH** and corresponds to **SKCM_GSE134388_aPD1**, a well-characterized immunotherapy dataset widely used for tumor microenvironment (TME) analysis.
 
 The goal of this analysis is to:
 - Process raw single-cell expression data
@@ -25,8 +25,8 @@ This report documents **every analytical step**, the **input and output files**,
 ## Source
 - **Database:** TISCH (Tumor Immune Single Cell Hub)
 - **Cancer type:** Skin Cutaneous Melanoma (SKCM)
-- **GEO accession:** GSE115978
-- **TISCH subset:** SKCM_GSE115978_aPD1
+- **GEO accession:** GSE134388
+- **TISCH subset:** SKCM_GSE134388_aPD1
 
 ## Experimental Design
 
