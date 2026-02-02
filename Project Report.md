@@ -271,7 +271,48 @@ The presence of cycling cells and distinct melanoma clusters reflects tumor hete
 
 ---
 
+### Results and Interpretation
+## Immune Heterogeneity After Anti–PD-1 Treatment
+
+# Key finding:
+
+“My analysis showed that even after anti-PD-1 treatment, the melanoma tumor retained multiple immune compartments rather than a single dominant population. This is consistent with published scRNA-seq studies such as Sade-Feldman et al. and Yost et al., which demonstrate that checkpoint blockade reshapes but does not eliminate immune heterogeneity. My results provide a descriptive confirmation of this post-treatment immune complexity at the single-cell level.”
+
+The presence of multiple immune and stromal populations indicates persistent functional diversity within the tumor microenvironment despite immunotherapy.
+
+---
+
+# Significance
+
+- Confirms known post-treatment immune complexity in melanoma
+
+- Demonstrates correct application of scRNA-seq analytical methods
+
+- Provides a reproducible framework for tumor microenvironment analysis
+
+- Serves as a strong foundation for future comparative or longitudinal studies
+
+---
+
+# Limitations and Future Directions
+
+- Single patient and single tumor sample
+
+- No pre-treatment comparison
+
+
+# Future work could include:
+
+- Integrating pre- and post-treatment datasets
+
+- Comparing responders vs non-responders
+
+- Trajectory or cell–cell interaction analysis
+
+---
+
 # Conclusion
 
-This project demonstrates a complete, reproducible scRNA-seq workflow using modern single-cell best practices. It integrates computational rigor with biological interpretation and serves as a strong portfolio project for genomics, bioinformatics, and immuno-oncology roles.
+This project demonstrates a complete, reproducible single-cell RNA-seq analysis pipeline and provides biologically grounded insights into the immune landscape of an anti–PD-1–treated melanoma tumor. The work emphasizes careful interpretation, literature-aware reasoning, and methodological rigor suitable for research and interview presentation.
+
 
