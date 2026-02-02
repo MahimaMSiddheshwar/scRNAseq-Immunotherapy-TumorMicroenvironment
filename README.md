@@ -12,7 +12,7 @@
 
 ## Project Title 
 
-**End-to-End Single-Cell RNA-seq Analysis of Anti–PD-1 Treated Melanoma Tumor (SKCM_GSE115978_aPD1)**
+**End-to-End Single-Cell RNA-seq Analysis of Anti–PD-1 Treated Melanoma Tumor (SKCM_GSE134388_aPD1)**
 
 ---
 
@@ -32,7 +32,7 @@ The analysis focuses on:
 ## Dataset Description
 
 * **Source**: TISCH (Tumor Immune Single Cell Hub)
-* **Original GEO Accession**: GSE115978
+* **Original GEO Accession**: GSE134388
 * **Sample Type**: Melanoma (SKCM)
 * **Treatment**: Anti–PD-1 (aPD1)
 * **Number of Patients**: 1
