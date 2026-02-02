@@ -18,7 +18,7 @@
 
 ## Project Overview
 
-This project presents a complete, end-to-end **single-cell RNA sequencing (scRNA-seq)** analysis of a melanoma (SKCM) tumor sample treated with **anti–PD-1 immunotherapy**, derived from the **TISCH** database (dataset: `SKCM_GSE115978_aPD1`).
+This project presents a complete, end-to-end **single-cell RNA sequencing (scRNA-seq)** analysis of a melanoma (SKCM) tumor sample treated with **anti–PD-1 immunotherapy**, derived from the **TISCH** database (dataset: `SKCM_GSE134388_aPD1`).
 
 The analysis focuses on:
 
