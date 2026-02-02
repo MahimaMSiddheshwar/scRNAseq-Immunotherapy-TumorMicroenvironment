@@ -271,10 +271,10 @@ The presence of cycling cells and distinct melanoma clusters reflects tumor hete
 
 ---
 
-### Results and Interpretation
+# Results and Interpretation
 ## Immune Heterogeneity After Anti–PD-1 Treatment
 
-# Key finding:
+### Key finding:
 
 “My analysis showed that even after anti-PD-1 treatment, the melanoma tumor retained multiple immune compartments rather than a single dominant population. This is consistent with published scRNA-seq studies such as Sade-Feldman et al. and Yost et al., which demonstrate that checkpoint blockade reshapes but does not eliminate immune heterogeneity. My results provide a descriptive confirmation of this post-treatment immune complexity at the single-cell level.”
 
