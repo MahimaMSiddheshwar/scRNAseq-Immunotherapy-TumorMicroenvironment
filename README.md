@@ -174,7 +174,6 @@ scRNAseq_Immunotherapy/
 * Clear separation of **immune, stromal, and tumor populations**
 * Successful annotation of major immune cell types
 * Robust, reproducible scRNA-seq pipeline
-* Analysis suitable for **research presentation and interviews**
 
 ---
 
@@ -189,7 +188,6 @@ Bioinformatics Scientist | scRNA-seq | Transcriptomics | Immunogenomics
 This repository is designed for 🧬
 
 * Learning and demonstration of scRNA-seq workflows 
-* Interview discussions and project presentations
 * Extension to multi-sample or multi-patient analyses
 
 ---
