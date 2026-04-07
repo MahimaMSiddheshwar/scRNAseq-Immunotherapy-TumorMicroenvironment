@@ -25,8 +25,7 @@ The analysis focuses on:
 * Characterizing the **tumor immune microenvironment**
 * Identifying major **immune and stromal cell populations**
 * Annotating clusters using **canonical marker genes**
-* Building a **reproducible and interpretable scRNA-seq workflow** suitable for research, interviews, and presentations
-
+* Building a **reproducible and interpretable scRNA-seq workflow** suitable for research.
 ---
 
 ## Dataset Description
