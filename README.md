@@ -190,6 +190,3 @@ This repository is designed for 🧬
 * Learning and demonstration of scRNA-seq workflows 
 * Extension to multi-sample or multi-patient analyses
 
----
-
-⭐ If you find this project useful, feel free to star the repository.
